@@ -1,7 +1,7 @@
 package com.pt2.bazazadanie;
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.ColumnInfo;
 
 @Entity (tableName = "samochody_tabela")
 public class Samochody {
@@ -11,6 +11,7 @@ public class Samochody {
     private String marka;
     private int przebieg;
     private double cena;
+    @ColumnInfo(name = "Kraj pochodzenia")
     private String kraj;
 
     public int getId() {
