@@ -71,19 +71,13 @@ public class MainActivity extends AppCompatActivity {
                 new AdapterView.OnItemLongClickListener() {
                     @Override
                     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        samochodyBazaDanych.zwrocSamochodyDao().usun(wszystkieSamochodyList.get(i));
-                        wszystkieSamochodyList.remove(i);
-                        arrayAdapter.notifyDataSetChanged();
-
+                        model.setText(wszystkieSamochodyList.get(i).getModel());
+                        marka.setText(wszystkieSamochodyList.get(i).getMarka());
+                        kraj.setText(wszystkieSamochodyList.get(i).getKraj());
+                        przebieg.setText(String.valueOf(wszystkieSamochodyList.get(i).getPrzebieg()));
+                        cena.setText(String.valueOf(wszystkieSamochodyList.get(i).getCena()));
+                        id_wybor = i;
                         return false;
-                    }
-                }
-        );
-        /*lista.setOnItemClickListener(
-                new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        id_wybor = wszystkieSamochodyList.get(i).getId();
                     }
                 }
         );
@@ -97,9 +91,16 @@ public class MainActivity extends AppCompatActivity {
                         przebieg_text = Integer.parseInt(String.valueOf(przebieg.getText()));
                         cena_text = Double.parseDouble(String.valueOf(cena.getText()));
 
-                        samochodyBazaDanych.zwrocSamochodyDao().zaktualizuj();
+                        wszystkieSamochodyList.get(id_wybor).setCena(cena_text);
+                        wszystkieSamochodyList.get(id_wybor).setPrzebieg(przebieg_text);
+                        wszystkieSamochodyList.get(id_wybor).setModel(model_text);
+                        wszystkieSamochodyList.get(id_wybor).setMarka(marka_text);
+                        wszystkieSamochodyList.get(id_wybor).setKraj(kraj_text);
+
+                        arrayAdapter.notifyDataSetChanged();
+                        samochodyBazaDanych.zwrocSamochodyDao().zaktualizuj(wszystkieSamochodyList.get(id_wybor));
                     }
                 }
-        );*/
+        );
     }
 }
