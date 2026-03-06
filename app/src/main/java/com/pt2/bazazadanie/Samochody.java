@@ -70,4 +70,16 @@ public class Samochody {
         this.cena = cena;
         this.kraj = kraj;
     }
+
+    @Override
+    public String toString() {
+        return "Samochody{" +
+                "id=" + id +
+                ", model='" + model + '\'' +
+                ", marka='" + marka + '\'' +
+                ", przebieg=" + przebieg +
+                ", cena=" + cena +
+                ", kraj='" + kraj + '\'' +
+                '}';
+    }
 }
