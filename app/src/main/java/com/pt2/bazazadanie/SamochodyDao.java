@@ -21,4 +21,7 @@ public interface SamochodyDao {
 
     @Query("Select * from samochody_tabela")
     List<Samochody> zwrocWszystkieSamochody();
+
+    @Query("Modify")
+
 }
