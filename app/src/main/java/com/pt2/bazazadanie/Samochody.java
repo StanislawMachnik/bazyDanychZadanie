@@ -11,6 +11,7 @@ public class Samochody {
     private String marka;
     private int przebieg;
     private double cena;
+
     @ColumnInfo(name = "Kraj pochodzenia")
     private String kraj;
 
@@ -77,6 +78,7 @@ public class Samochody {
                 "Marka: " + marka + '\n' +
                 "Przebieg: " + przebieg +"km" + '\n' +
                 "Cena: " + cena +"zł"+ '\n' +
-                "Kraj: " + kraj + "\n";
+                "Kraj: " + kraj + "\n" +
+                "ID: " + id + "\n";
     }
 }

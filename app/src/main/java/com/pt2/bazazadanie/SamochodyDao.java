@@ -4,6 +4,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 
 import java.util.List;
@@ -22,4 +23,10 @@ public interface SamochodyDao {
     @Query("Select * from samochody_tabela")
     List<Samochody> zwrocWszystkieSamochody();
 
+    @Transaction
+    @Query("Select * from wlasciciele_tabela")
+    List<WlascicielZSamochodem> zwrocWlascicielaISamochod();
+
+    @Insert
+    public void wstawWlasciciela(Wlasciciele wlasciciele);
 }

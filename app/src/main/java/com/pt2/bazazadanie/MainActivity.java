@@ -1,5 +1,6 @@
 package com.pt2.bazazadanie;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,6 +18,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     SamochodyBazaDanych samochodyBazaDanych;
     private ListView lista;
+    private ListView lista2;
     private EditText model;
     private EditText marka;
     private EditText przebieg;
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private double cena_text;
     private int id_wybor;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         lista = findViewById(R.id.lista);
+        lista2 = findViewById(R.id.lista2);
         model = findViewById(R.id.model);
         marka = findViewById(R.id.marka);
         przebieg = findViewById(R.id.przebieg);
@@ -51,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
         List<Samochody> wszystkieSamochodyList = samochodyBazaDanych.zwrocSamochodyDao().zwrocWszystkieSamochody();
         ArrayAdapter<Samochody> arrayAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, wszystkieSamochodyList);
         lista.setAdapter(arrayAdapter);
+
+        List<WlascicielZSamochodem> wszyscyWlascicieleList = samochodyBazaDanych.zwrocSamochodyDao().zwrocWlascicielaISamochod();
+        ArrayAdapter<WlascicielZSamochodem> arrayAdapter2 = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, wszyscyWlascicieleList);
+        lista2.setAdapter(arrayAdapter2);
 
         dodaj.setOnClickListener(
                 new View.OnClickListener() {
@@ -76,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                         kraj.setText(wszystkieSamochodyList.get(i).getKraj());
                         przebieg.setText(String.valueOf(wszystkieSamochodyList.get(i).getPrzebieg()));
                         cena.setText(String.valueOf(wszystkieSamochodyList.get(i).getCena()));
+                        
                         id_wybor = i;
                         return false;
                     }
@@ -102,5 +111,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+
     }
 }
