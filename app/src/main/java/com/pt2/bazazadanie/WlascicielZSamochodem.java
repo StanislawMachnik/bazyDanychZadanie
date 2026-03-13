@@ -7,8 +7,7 @@ public class WlascicielZSamochodem {
 
     @Override
     public String toString() {
-        return "WlascicielZSamochodem{" +
-                "wlasciciele=" + wlasciciele + "\n" + samochody;
+        return "\n" + wlasciciele + "\n" + samochody;
     }
     @Embedded public Wlasciciele wlasciciele;
     @Relation(

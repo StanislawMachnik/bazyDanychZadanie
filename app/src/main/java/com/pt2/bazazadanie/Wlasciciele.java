@@ -65,12 +65,10 @@ public class Wlasciciele {
 
     @Override
     public String toString() {
-        return "Wlasciciele{" +
-                "id_wlasciciel=" + id_wlasciciel +
-                ", imie='" + imie + '\'' +
-                ", nazwisko='" + nazwisko + '\'' +
-                ", pesel=" + pesel +
-                ", samochod_id=" + samochod_id +
-                '}';
+        return "ID właściciela: " + id_wlasciciel +
+                "\nImię: " + imie +
+                "\nNazwisko: " + nazwisko +
+                "\nPesel:" + pesel +
+                "\nID samochodu: " + samochod_id;
     }
 }
